@@ -107,8 +107,8 @@ class _TaskListScreenState extends State<TaskListScreen> {
             ),
             Expanded(
               child: tasks.isEmpty
-                  ? const ListView(
-                      children: [
+                  ? ListView(
+                      children: const [
                         SizedBox(height: 40),
                         EmptyState(
                           icon: Icons.inbox_rounded,
