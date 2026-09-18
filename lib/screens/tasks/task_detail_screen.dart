@@ -124,7 +124,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                       GlassIconButton(
                         icon: Icons.delete_outline_rounded,
                         color: AppColors.coral,
-                        onTap: () => _showDeleteConfirm(context, taskProvider),
+                        onTap: () => _showDeleteConfirm(context, taskProvider, task),
                       ),
                     ],
                   ),
@@ -144,7 +144,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                                 final newStatus = isDone
                                     ? TaskStatus.pending
                                     : TaskStatus.completed;
-                                taskProvider.editTask(
+                                taskProvider.updateTask(
                                   task.copyWith(
                                     status: newStatus,
                                     completedAt: newStatus ==
@@ -371,7 +371,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
   }
 
   void _showDeleteConfirm(
-      BuildContext context, TaskProvider taskProvider) {
+      BuildContext context, TaskProvider taskProvider, Task task) {
     showDialog(
       context: context,
       builder: (dialogCtx) => GlassCard(
