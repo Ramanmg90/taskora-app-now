@@ -144,7 +144,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                                 final newStatus = isDone
                                     ? TaskStatus.pending
                                     : TaskStatus.completed;
-                                taskProvider.updateTask(
+                                taskProvider.editTask(
                                   task.copyWith(
                                     status: newStatus,
                                     completedAt: newStatus ==
@@ -436,7 +436,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                     color: Colors.transparent,
                     child: InkWell(
                       onTap: () {
-                        taskProvider.deleteTask(widget.taskId);
+                        taskProvider.deleteTask(task);
                         Navigator.pop(dialogCtx);
                         Navigator.pop(context);
                       },
