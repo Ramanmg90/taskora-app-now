@@ -144,7 +144,7 @@ class _TaskDetailScreenState extends State<TaskDetailScreen> {
                                 final newStatus = isDone
                                     ? TaskStatus.pending
                                     : TaskStatus.completed;
-                                taskProvider.updateTask(
+                                taskProvider.editTask(
                                   task.copyWith(
                                     status: newStatus,
                                     completedAt: newStatus ==
