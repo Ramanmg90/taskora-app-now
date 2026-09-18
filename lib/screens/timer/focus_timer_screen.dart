@@ -91,7 +91,7 @@ class _FocusTimerScreenState extends State<FocusTimerScreen> {
     );
 
     if (_isFocus && _selectedTask != null) {
-      context.read<TaskProvider>().updateTask(_selectedTask!.copyWith(
+      context.read<TaskProvider>().editTask(_selectedTask!.copyWith(
             status: TaskStatus.completed,
             completedAt: DateTime.now(),
           ));
@@ -228,38 +228,40 @@ class _FocusTimerScreenState extends State<FocusTimerScreen> {
                 ),
               ),
             FadeSlideIn(
-              delayMs: 120,
-              child: Center(
-                child: SizedBox(
-                  width: 220,
-                  height: 220,
-                  child: Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      NeonProgressRing(progress: progress, size: 220, color: color, strokeWidth: 8),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            _display,
-                            style: TextStyle(
-                              fontSize: 52,
-                              fontWeight: FontWeight.w900,
-                              color: t.ink,
-                              fontFamily: 'Courier',
-                            ),
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            _isFocus ? 'تمرکز' : 'استراحت',
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w700,
-                              color: color,
-                              letterSpacing: 0.8,
-                            ),
-                          ),
-                        ],
+  delayMs: 120,
+  child: Center(
+    child: NeonCountdownRing(
+      value: progress,
+      size: 220,
+      stroke: 8,
+      tint: color,
+      center: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            _display,
+            style: TextStyle(
+              fontSize: 52,
+              fontWeight: FontWeight.w900,
+              color: t.ink,
+              fontFamily: 'Courier',
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            _isFocus ? 'تمرکز' : 'استراحت',
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w700,
+              color: color,
+              letterSpacing: 0.8,
+            ),
+          ),
+        ],
+      ),
+    ),
+  ),
+),
                       ),
                     ],
                   ),
