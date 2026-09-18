@@ -184,7 +184,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 child: Column(
                   children: [
                     _SettingItemWithSlider(
-                      icon: Icons.lightning_bolt_rounded,
+                      icon: Icons.bolt_rounded,
                       label: 'مدت‌ زمان تمرکز',
                       value: _focusMinutes.toDouble(),
                       min: 5,
