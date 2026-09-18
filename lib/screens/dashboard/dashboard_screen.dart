@@ -73,7 +73,7 @@ class DashboardScreen extends StatelessWidget {
                         color: Colors.white,
                       ),
                       child: Text(
-                        (user?.name ?? 'کاربر').characters.first.toUpperCase(),
+                        (user?.fullName ?? 'کاربر').characters.first.toUpperCase(),
                         style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w900,
@@ -87,7 +87,7 @@ class DashboardScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'سلام، ${user?.name ?? 'کاربر'}! 👋',
+                            'سلام، ${user?.fullName ?? 'کاربر'}! 👋',
                             style: const TextStyle(
                               fontSize: 15.5,
                               fontWeight: FontWeight.w900,
