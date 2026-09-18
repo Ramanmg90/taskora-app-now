@@ -88,7 +88,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         ),
                       ),
                       child: Text(
-                        (user?.name ?? 'K').characters.first.toUpperCase(),
+                        (user?.fullName ?? 'K').characters.first.toUpperCase(),
                         style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.w900,
@@ -102,7 +102,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            user?.name ?? 'کاربر',
+                            user?.fullName ?? 'کاربر',
                             style: TextStyle(
                               fontSize: 15,
                               fontWeight: FontWeight.w800,
